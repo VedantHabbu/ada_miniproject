@@ -1,4 +1,4 @@
-# Smart Parking Lot System 🚗
+# Smart Parking Lot System 
 
 A Smart Parking Lot System built using Flask, HTML, CSS, and Bootstrap that demonstrates the use of Greedy Algorithms, Hashing, Queue, and O(1) optimized operations for efficient parking management.
 
