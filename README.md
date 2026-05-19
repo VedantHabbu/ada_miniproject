@@ -67,3 +67,5 @@ parking-system/
 │   └── style.css
 │
 └── README.md
+
+<img width="1518" height="724" alt="dashboard ada" src="https://github.com/user-attachments/assets/ca9a9f19-4742-47bf-99f5-8bd1fdcb26c1" />
