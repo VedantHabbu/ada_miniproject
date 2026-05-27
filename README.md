@@ -1,71 +1,65 @@
-# Smart Parking Lot System 
-
-A Smart Parking Lot System built using Flask, HTML, CSS, and Bootstrap that demonstrates the use of Greedy Algorithms, Hashing, Queue, and O(1) optimized operations for efficient parking management.
+# Smart Parking Lot System
+A Smart Parking Lot System built using Flask, HTML, CSS, and Bootstrap that demonstrates
+the use of Greedy Algorithms, Hashing, Queue, and Dynamic Pricing for efficient parking management.
 
 ---
 
 # Features
-
-- Greedy-based parking slot allocation
-- O(1) optimized slot allocation using deque
-- Hashing for fast vehicle search and deallocation
-- Queue handling when parking becomes full
-- Dynamic parking pricing based on occupancy
+- Greedy-based parking slot allocation (always picks first available slot)
+- Hashing for O(1) vehicle search, insertion, and deallocation
+- Queue handling when parking is full
+- Automatic queue allocation after vehicle exit
+- Dynamic parking pricing based on occupancy percentage
+- Algorithm visualization popup on slot allocation (shows greedy steps live)
 - Visual slot status (Free / Occupied)
 - Vehicle search functionality
-- Automatic queue allocation after vehicle exit
-- Responsive modern UI using Bootstrap
+- Responsive modern dark UI using Bootstrap 5
 
 ---
 
 # Technologies Used
-
-- Python
+- Python 3
 - Flask
-- HTML
-- CSS
-- Bootstrap
-- Jinja Template Engine
+- HTML / CSS
+- Bootstrap 5
+- Jinja2 Template Engine
 
 ---
 
 # DSA Concepts Used
 
 ## Greedy Algorithm
-Used for optimal parking slot allocation by assigning the first available slot.
+Used for parking slot allocation. Always picks the first available slot from
+`available_slots[0]` without evaluating other options. After a vehicle is removed,
+`available_slots.sort()` restores greedy order so the next allocation is always consistent.
 
 ## Hashing
-Used for:
-- Fast vehicle lookup
-- Vehicle deallocation
-- Vehicle-slot mapping
+`parked_vehicles` is a Python dictionary used as a hash map.
+- Vehicle number is the key, slot is the value
+- Park, search, and remove are all O(1) operations
+- No iteration needed — direct memory access
 
-## Queue
-Used to manage waiting vehicles when parking is full.
+## Queue (FIFO)
+`waiting_queue` is a list that acts as a FIFO queue.
+- When parking is full, vehicles are added to the rear
+- When a slot frees up, the front vehicle is auto-allocated immediately
+- Duplicate entries are prevented in `add_to_queue()`
 
-## Deque
-Used for O(1) parking slot allocation and insertion.
+## Dynamic Pricing
+Threshold-based pricing recalculated on every request:
+- 0–49% occupancy → Rs. 50
+- 50–79% occupancy → Rs. 100
+- 80%+ occupancy   → Rs. 150
+
+---
+
+# Algorithm Visualization
+When a vehicle is successfully parked, a popup appears showing:
+- All slots color-coded (free / occupied / chosen)
+- The chosen slot highlighted with a pulse animation
+- Step-by-step breakdown of how greedy picked the slot
 
 ---
 
 # Project Structure
-
 ```text
-parking-system/
-│
-├── app.py
-│
-├── parking/
-│   ├── allocation.py
-│   ├── pricing.py
-│   └── queue_handler.py
-│
-├── templates/
-│   └── dashboard.html
-│
-├── static/
-│   └── style.css
-│
-└── README.md
-
-<img width="1518" height="724" alt="dashboard ada" src="https://github.com/user-attachments/assets/ca9a9f19-4742-47bf-99f5-8bd1fdcb26c1" />
