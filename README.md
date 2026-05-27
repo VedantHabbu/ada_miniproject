@@ -63,3 +63,31 @@ When a vehicle is successfully parked, a popup appears showing:
 
 # Project Structure
 ```text
+parking-system/
+│
+├── app.py                  # Flask routes (park, remove, search, home)
+│
+├── parking/
+│   ├── allocation.py       # Greedy allocation, hash map, slot management
+│   ├── pricing.py          # Dynamic pricing logic
+│   └── queue_handler.py    # Waiting queue management
+│
+├── templates/
+│   └── dashboard.html      # Main UI with Jinja2 templating + viz popup
+│
+├── static/
+│   └── style.css           # Dark theme styling
+│
+└── README.md
+```
+
+---
+
+# How to Run
+```bash
+pip install flask
+python app.py
+```
+Open `http://127.0.0.1:5000` in your browser.
+
+---
