@@ -5,8 +5,8 @@ the use of Greedy Algorithms, Hashing, Queue, and Dynamic Pricing for efficient 
 ---
 
 # Features
-- Greedy-based parking slot allocation (always picks first available slot)
-- Hashing for O(1) vehicle search, insertion, and deallocation
+- Greedy-based parking slot allocation and deallocation (always picks first available slot; sort after removal maintains greedy order)
+- Hashing for O(1) vehicle search
 - Queue handling when parking is full
 - Automatic queue allocation after vehicle exit
 - Dynamic parking pricing based on occupancy percentage
