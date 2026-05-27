@@ -29,9 +29,10 @@ the use of Greedy Algorithms, Hashing, Queue, and Dynamic Pricing for efficient 
 # DSA Concepts Used
 
 ## Greedy Algorithm
-Used for parking slot allocation. Always picks the first available slot from
-`available_slots[0]` without evaluating other options. After a vehicle is removed,
-`available_slots.sort()` restores greedy order so the next allocation is always consistent.
+Used for both allocation and deallocation. Allocation always picks the first available
+slot from available_slots[0] without evaluating other options — greedy choice.
+Deallocation appends the freed slot back and calls available_slots.sort() to restore
+greedy order, ensuring the next allocation is always consistent.
 
 ## Hashing
 `parked_vehicles` is a Python dictionary used as a hash map.
